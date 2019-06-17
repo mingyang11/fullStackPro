@@ -13,7 +13,7 @@
   "license": "ISC",
   "devDependencies": {
     "antd": "^3.19.1",
-    "umi": "^2.6.17",
+    "umi": "^2.7.7",
     "umi-plugin-react": "^1.7.6"
   }
 }
