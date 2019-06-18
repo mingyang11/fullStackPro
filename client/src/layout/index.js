@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import { Layout, Menu, Breadcrumb, Icon } from 'antd';
+import { Layout, Menu, Icon } from 'antd';
 import Link from 'umi/link';
 import routeConfig from './config';
 
-const { Header, Content, Footer, Sider } = Layout;
+const { Header, Sider, Content } = Layout;
 const SubMenu = Menu.SubMenu; 
 
 class BasicLayout extends Component {
@@ -11,6 +11,7 @@ class BasicLayout extends Component {
         super(props);
         this.state={
             current: ['helloWorld'],
+            collapsed: false,
         }
     }
     componentDidMount() {
@@ -20,13 +21,13 @@ class BasicLayout extends Component {
         return data.map((element) => {
             if(element.children) {
                 return (
-                    <SubMenu title={element.title} key={element.key}>
+                    <SubMenu title={<span><Icon type="user" />{element.title}</span>} key={element.key}>
                         {this.renderMenu(element.children)}
                     </SubMenu>
                 )
             }
             return <Menu.Item key={element.key} title={element.title}>
-                <Link to={element.path}>{element.path}</Link>
+                <Link to={element.path}><Icon type="user" />{element.title}</Link>
             </Menu.Item>
         })
     }
@@ -35,32 +36,49 @@ class BasicLayout extends Component {
             current: e.keyPath
         })
     }
+    toggle = () => {
+        this.setState({
+          collapsed: !this.state.collapsed,
+        });
+    }
     render() {
         const { current } = this.state;
         return (
             <Layout>
-                <Header>
+                <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
+                    <div style={{height: 100}} />
                     <Menu
                         onClick={this.handleClick}
                         theme="dark"
-                        mode="horizontal"
+                        mode="inline"
                         defaultSelectedKeys={current}
-                        style={{ lineHeight: '64px' }}
                     >
                         {
                             this.renderMenu(routeConfig)
                         }
                     </Menu>
-                </Header>
-
-                <Content style={{ padding: '0 20px' }}>
-                    <div style={{ background: '#fff', padding: 24, minHeight: 280 }}>{this.props.children}</div>
-                </Content>
-
-                <Footer style={{ textAlign: 'center' }}>
-                    Ant Design ©2018 Created by Ant UED
-                </Footer>
+                </Sider>
+                <Layout>
+                    <Header style={{ background: '#fff', padding: 0 }}>
+                        <Icon
+                            style={{marginLeft: 20}}
+                            type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
+                            onClick={this.toggle}
+                        />
+                    </Header>
+                    <Content
+                        style={{
+                            margin: '24px 16px',
+                            padding: 24,
+                            background: '#fff',
+                            minHeight: window.innerHeight,
+                        }}
+                    >
+                        <div style={{ background: '#fff', padding: 24, minHeight: 280 }}>{this.props.children}</div>
+                    </Content>
+                </Layout>
             </Layout>
+            
         )
     }
 }

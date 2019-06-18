@@ -1,32 +1,32 @@
 const routeConfig = [
     {
-        title: 'helloWorld',
+        title: '首页',
         path: '/helloWorld',
         key: 'helloWorld',
     },
     {
-        title: 'dashboard',
+        title: '测试主页',
         key: 'dashboard',
         children: [
             {
-                title: 'analysis',
+                title: '分析页',
                 path: '/dashboard/analysis',
                 key: 'analysis',
             },
             {
-                title: 'monitor',
+                title: '监控',
                 path: '/dashboard/monitor',
                 key: 'monitor',
             },
             {
-                title: 'workplace',
+                title: '工作区',
                 path: '/dashboard/workplace',
                 key: 'workplace',
             },
         ]
     },
     {
-        title: 'cardPage',
+        title: '卡片页',
         path: '/cardPage',
         key: 'cardPage',
     }

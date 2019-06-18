@@ -14,4 +14,4 @@ app.use(createLoading());
   app.use(plugin);
 });
 
-app.model({ namespace: 'index', ...(require('/Users/mingyang/Desktop/project_file/fullStack/Client/src/model/CardPage/index.js').default) });
+app.model({ namespace: 'index', ...(require('/Users/mingyang/Desktop/project_file/fullStack/client/src/model/CardPage/index.js').default) });

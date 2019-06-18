@@ -2,11 +2,12 @@ import React from 'react';
 import { Router as DefaultRouter, Route, Switch } from 'react-router-dom';
 import dynamic from 'umi/dynamic';
 import renderRoutes from 'umi/_renderRoutes';
+import history from '@tmp/history';
 
 
-let Router = require('dva/router').routerRedux.ConnectedRouter;
+const Router = require('dva/router').routerRedux.ConnectedRouter;
 
-let routes = [
+const routes = [
   {
     "path": "/",
     "component": require('../../layout').default,
@@ -40,7 +41,7 @@ let routes = [
             "exact": true
           },
           {
-            "component": () => React.createElement(require('/Users/mingyang/Desktop/project_file/fullStack/Client/node_modules/umi-build-dev/lib/plugins/404/NotFound.js').default, { pagesPath: 'src/page', hasRoutesInConfig: true })
+            "component": () => React.createElement(require('/Users/mingyang/Desktop/project_file/fullStack/client/node_modules/umi-build-dev/lib/plugins/404/NotFound.js').default, { pagesPath: 'src/page', hasRoutesInConfig: true })
           }
         ]
       },
@@ -50,20 +51,21 @@ let routes = [
         "exact": true
       },
       {
-        "component": () => React.createElement(require('/Users/mingyang/Desktop/project_file/fullStack/Client/node_modules/umi-build-dev/lib/plugins/404/NotFound.js').default, { pagesPath: 'src/page', hasRoutesInConfig: true })
+        "component": () => React.createElement(require('/Users/mingyang/Desktop/project_file/fullStack/client/node_modules/umi-build-dev/lib/plugins/404/NotFound.js').default, { pagesPath: 'src/page', hasRoutesInConfig: true })
       }
     ]
   },
   {
-    "component": () => React.createElement(require('/Users/mingyang/Desktop/project_file/fullStack/Client/node_modules/umi-build-dev/lib/plugins/404/NotFound.js').default, { pagesPath: 'src/page', hasRoutesInConfig: true })
+    "component": () => React.createElement(require('/Users/mingyang/Desktop/project_file/fullStack/client/node_modules/umi-build-dev/lib/plugins/404/NotFound.js').default, { pagesPath: 'src/page', hasRoutesInConfig: true })
   }
 ];
 window.g_routes = routes;
-window.g_plugins.applyForEach('patchRoutes', { initialValue: routes });
+const plugins = require('umi/_runtimePlugin');
+plugins.applyForEach('patchRoutes', { initialValue: routes });
 
 // route change handler
 function routeChangeHandler(location, action) {
-  window.g_plugins.applyForEach('onRouteChange', {
+  plugins.applyForEach('onRouteChange', {
     initialValue: {
       routes,
       location,
@@ -71,12 +73,14 @@ function routeChangeHandler(location, action) {
     },
   });
 }
-window.g_history.listen(routeChangeHandler);
-routeChangeHandler(window.g_history.location);
+history.listen(routeChangeHandler);
+routeChangeHandler(history.location);
+
+export { routes };
 
 export default function RouterWrapper() {
   return (
-<Router history={window.g_history}>
+<Router history={history}>
       { renderRoutes(routes, {}) }
     </Router>
   );
