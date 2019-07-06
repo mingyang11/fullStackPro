@@ -13,7 +13,8 @@ module.exports = appInfo => {
   const config = exports = {
     security: {
       csrf : {
-        headerName: 'x-csrf-token',// 自定义请求头
+        csrf: false
+        // headerName: 'x-csrf-token',
       }
     }
   };

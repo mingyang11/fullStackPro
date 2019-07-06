@@ -33,7 +33,7 @@ export default {
                 const { call, put } = sagaEffects;
                 const url = comonURL + "/test";
                 const data = yield call(request, {
-                    method: 'post',
+                    method: 'get',
                     headers:{
                         'x-csrf-token': getCookie("csrfToken"), // 前后端不分离的情况加每次打开客户端，egg会直接在客户端的 Cookie 中写入密钥 ，密钥的 Key 就是 'scrfToken' 这个字段，所以直接获取就好了
                     },
@@ -42,8 +42,8 @@ export default {
                       firstName: 'Fred',
                       lastName: 'Flintstone'
                     }
-                  });
-                  
+                });
+
                 yield put({
                     type: 'handleData',
                     payload: ({
@@ -53,12 +53,28 @@ export default {
             } catch (error) {
                 throw error
             }
-            
-        }
+        },
+        *getDataTest({payload}, sagaEffects) {
+            try {
+                const { call, put } = sagaEffects;
+                const url = "/api/users";
+                const testData = yield call(request, url);
+
+                yield put({
+                    type: 'handleData',
+                    payload: ({
+                        testData
+                    })
+                });
+            } catch (error) {
+                throw error
+            }
+        },
     },
     reducers: {
         handleData(state, { payload: newCard }) {
             state.data = newCard.data;
+            state.testData = newCard.testData;
             return state;
         },
         addNewCard(state, { payload: newCard }) {

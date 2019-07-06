@@ -22,6 +22,12 @@ const mapDispatchToProps = (dispatch) => {
                 payload: param,
             });
         },
+        getDataTest: (param) => {
+            dispatch({
+                type: `${namespace}/getDataTest`,
+                payload: param,
+            });
+        }
     };
 };
 
@@ -47,6 +53,7 @@ export default class CardPage extends Component {
     }
     componentDidMount() {
         this.props.getData()
+        this.props.getDataTest()
     }
     handleAdd = () => {
         this.props.onClickAdd();
