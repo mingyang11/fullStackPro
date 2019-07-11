@@ -10,19 +10,10 @@ module.exports = appInfo => {
    * built-in config
    * @type {Egg.EggAppConfig}
    **/
-  const config = exports = {
-    security: {
-      csrf : {
-        csrf: false
-        // headerName: 'x-csrf-token',
-      }
-    }
-  };
-  // config.security= {
-  //   csrf : {
-  //     headerName: 'x-csrf-token',// 自定义请求头
-  //   }
-  // }
+  const config = exports = {};
+  config.security= {
+    csrf : {enable: false}
+  }
 
   // use for cookie sign key, should change to your own and keep security
   config.keys = appInfo.name + '_1560783102568_1643';
