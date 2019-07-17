@@ -28,7 +28,6 @@ class LoginController extends Controller {
         message: '登陆成功',
       }
     }else {
-      // ctx.throw(400, '用户名或密码错误');
       ctx.status = 400;
       ctx.body = {msg: '用户名或密码错误'}
     }
