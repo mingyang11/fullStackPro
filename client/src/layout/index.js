@@ -45,7 +45,7 @@ class BasicLayout extends Component {
         const { current } = this.state;
         return (
             <Layout>
-                <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
+                <Sider collapsible collapsed={this.state.collapsed}>
                     <div style={{height: 100}} />
                     <Menu
                         onClick={this.handleClick}
@@ -60,11 +60,7 @@ class BasicLayout extends Component {
                 </Sider>
                 <Layout>
                     <Header style={{ background: '#fff', padding: 0 }}>
-                        <Icon
-                            style={{marginLeft: 20}}
-                            type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
-                            onClick={this.toggle}
-                        />
+                        
                     </Header>
                     <Content
                         style={{
