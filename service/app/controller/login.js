@@ -7,7 +7,8 @@ class LoginController extends Controller {
   async register() {
     const { ctx } = this;
     const {username, email, password} = ctx.request.body;
-    await ctx.service.user.register({username, email, password});
+    const userInfo = await ctx.service.user.register({username, email, password});
+    console.log(userInfo)
   }
 
   // 登陆
@@ -19,8 +20,8 @@ class LoginController extends Controller {
       const opts = {
         path: '/',
         maxAge: 1000*60*60*24*7,
-        httpOnly: false,
-        domain: '127.0.0.1',
+        // httpOnly: false,
+        // domain: '127.0.0.1',
       }
       ctx.cookies.set(this.app.config.auth_cookie_name, token, opts)
       ctx.status = 200;

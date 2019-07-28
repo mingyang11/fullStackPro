@@ -1,4 +1,4 @@
-const jwt = require('jsonwebtoken');
+const jwt1 = require('jsonwebtoken');
 
 module.exports = {
   get jwt() {
@@ -7,7 +7,7 @@ module.exports = {
   // 用户身份 jwt sign userId 
   get user() {
     let token = this.cookies.get('token')
-    let user = jwt.verify(token, this.app.config.jwtSecret);
+    let user = jwt1.verify(token, this.app.config.jwtSecret);
     return user;
   },
   returnBody (status, message, data = {}) {

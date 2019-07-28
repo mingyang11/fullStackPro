@@ -27,7 +27,7 @@ module.exports = appInfo => {
   config.password_secret = 'yangming';
   config.jwtSecret = 'yangming';
   config.auth_cookie_name = 'token';
-  config.authWhiteList = ['/api/v2/user/login', '/api/v2/user/register'];
+  config.authWhiteList = ['/', '/api/v2', '/api/v2/user/login', '/api/v2/user/login'];
 
   config.keys = appInfo.name + '_1560783102568_1643';
 
