@@ -10,7 +10,7 @@ const Router = require('dva/router').routerRedux.ConnectedRouter;
 const routes = [
   {
     "path": "/",
-    "component": require('../../layout').default,
+    "component": require('../layout').default,
     "routes": [
       {
         "path": "/",

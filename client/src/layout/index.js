@@ -42,6 +42,7 @@ class BasicLayout extends Component {
         });
     }
     render() {
+        const { children } = this.props;
         const { current } = this.state;
         return (
             <Layout>
@@ -70,7 +71,7 @@ class BasicLayout extends Component {
                             minHeight: window.innerHeight,
                         }}
                     >
-                        <div style={{ background: '#fff', padding: 24, minHeight: 280 }}>{this.props.children}</div>
+                        <div style={{ background: '#fff', padding: 24, minHeight: 280 }}>{children}</div>
                     </Content>
                 </Layout>
             </Layout>
