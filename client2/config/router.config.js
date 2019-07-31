@@ -5,12 +5,12 @@ export default [
     component: '../layouts/UserLayout',
     routes: [
       { path: '/user', redirect: '/user/login' },
-      { path: '/user/login', name: 'login', component: 'Welcome' },
-      { path: '/user/register', name: 'register', component: 'Welcome' },
+      { path: '/user/login', name: 'login', component: './Users/Login.js' },
+      { path: '/user/register', name: 'register', component: './Users/register.js' },
       {
-        path: '/user/register-result',
-        name: 'register.result',
-        component: 'Welcome',
+        path: '/user/forget',
+        name: 'forget',
+        component: './Users/forget.js',
       },
       {
         component: '404',
