@@ -1,5 +1,5 @@
-const ForgetPage = () => {
-    return <div>注册页面</div>
-}
+import React from 'react';
+
+const ForgetPage = () => <div>注册页面</div>;
 
 export default ForgetPage;

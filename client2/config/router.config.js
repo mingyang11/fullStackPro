@@ -4,9 +4,20 @@ export default [
     path: '/user',
     component: '../layouts/UserLayout',
     routes: [
-      { path: '/user', redirect: '/user/login' },
-      { path: '/user/login', name: 'login', component: './Users/Login.js' },
-      { path: '/user/register', name: 'register', component: './Users/register.js' },
+      {
+        path: '/user',
+        redirect: '/user/login',
+      },
+      {
+        path: '/user/login',
+        name: 'login',
+        component: './Users/Login.js',
+      },
+      {
+        path: '/user/register',
+        name: 'register',
+        component: './Users/register.js',
+      },
       {
         path: '/user/forget',
         name: 'forget',
@@ -24,7 +35,10 @@ export default [
     Routes: ['src/pages/Authorized'],
     routes: [
       // dashboard
-      { path: '/', redirect: '/dashboard/analysis'},
+      {
+        path: '/',
+        redirect: '/dashboard/analysis',
+      },
       {
         path: '/dashboard',
         name: 'dashboard',
@@ -33,7 +47,7 @@ export default [
           {
             path: '/dashboard/analysis',
             name: 'analysis',
-            component: 'Welcome',
+            component: './Dashboard/analysis/index',
           },
           {
             path: '/dashboard/monitor',
