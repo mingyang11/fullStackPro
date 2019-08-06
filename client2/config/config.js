@@ -126,13 +126,10 @@ export default {
     basePath: '/',
   },
   chainWebpack: webpackPlugin,
-  /*
   proxy: {
-    '/server/api/': {
-      target: 'https://preview.pro.ant.design/',
+    '/api/v2': {
+      target: 'http://127.0.0.1:7001',
       changeOrigin: true,
-      pathRewrite: { '^/server': '' },
     },
   },
-  */
 };

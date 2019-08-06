@@ -52,12 +52,12 @@ export default [
           {
             path: '/dashboard/monitor',
             name: 'monitor',
-            component: 'Welcome',
+            component: './Dashboard/monitor/index',
           },
           {
             path: '/dashboard/workplace',
             name: 'workplace',
-            component: 'Welcome',
+            component: './Dashboard/workplace/index',
           },
         ],
       },
@@ -114,24 +114,14 @@ export default [
         name: 'list',
         routes: [
           {
-            path: '/list/table-list',
-            name: 'searchtable',
-            component: 'Welcome',
-          },
-          {
             path: '/list/basic-list',
             name: 'basiclist',
-            component: 'Welcome',
-          },
-          {
-            path: '/list/card-list',
-            name: 'cardlist',
-            component: 'Welcome',
+            component: './ListPage/basicListPage/index',
           },
           {
             path: '/list/search',
             name: 'searchlist',
-            component: 'Welcome',
+            component: './ListPage/searchListPage/index',
             routes: [
               {
                 path: '/list/search',

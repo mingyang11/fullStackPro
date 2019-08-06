@@ -6,10 +6,10 @@
 module.exports = app => {
   const { router, controller } = app;
   // 根据版本接口来开发
-  const apiV2Router = router.namespace('/api/v2')
+  const apiV2Router = router.namespace('/api/v2');
 
   router.get('/', controller.home.index);
   router.get('/news', controller.home.newsList);
   apiV2Router.post('/login/register', controller.login.register);
-  apiV2Router.post('/login', controller.login.login)
+  apiV2Router.post('/login', controller.login.login);
 };
