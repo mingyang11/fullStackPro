@@ -5,7 +5,7 @@ import { connect } from 'dva';
 import router from 'umi/router';
 import mystyles from './login.less';
 
-@connect(data => ({}))
+@connect(data => ({ ...data }))
 @Form.create()
 class LoginPage extends Component {
   componentDidMount() {}
