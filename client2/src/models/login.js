@@ -1,5 +1,8 @@
 import { parse, stringify } from 'qs';
 import { routerRedux } from 'dva/router';
+import router from 'umi/router';
+import { fakeAccountLogin } from '@/services/api';
+
 export function getPageQuery() {
   return parse(window.location.href.split('?')[1]);
 }
@@ -23,10 +26,23 @@ const Model = {
         );
       }
     },
+    *login({ payload }, { call, put }) {
+      const response = yield call(fakeAccountLogin, payload);
+      yield put({
+        type: 'loginResult',
+        payload: response,
+      });
+      if (response.Succ) {
+        router.push('/');
+      }
+    },
   },
   reducers: {
     changeLoginStatus(state, { payload }) {
       return { ...state, status: payload.status, type: payload.type };
+    },
+    loginResult(state, { payload }) {
+      return { ...state, result: payload };
     },
   },
 };

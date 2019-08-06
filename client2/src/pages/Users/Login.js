@@ -1,16 +1,24 @@
 import React, { Component } from 'react';
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
 import Link from 'umi/link';
+import { connect } from 'dva';
 import router from 'umi/router';
 import mystyles from './login.less';
 
+@connect(data => ({}))
 @Form.create()
 class LoginPage extends Component {
+  componentDidMount() {}
+
   handleSubmit = e => {
+    const { dispatch } = this.props;
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
-        router.push('/');
+        dispatch({
+          type: 'login/login',
+          payload: { ...values },
+        });
       }
     });
   };
@@ -25,12 +33,12 @@ class LoginPage extends Component {
       <div className={mystyles.main}>
         <Form onSubmit={this.handleSubmit} className={mystyles.loginForm}>
           <Form.Item>
-            {getFieldDecorator('username', {
-              rules: [{ required: true, message: '请输入用户名!' }],
+            {getFieldDecorator('email', {
+              rules: [{ required: true, message: '请输入邮箱!' }],
             })(
               <Input
                 prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                placeholder="用户名"
+                placeholder="邮箱"
               />,
             )}
           </Form.Item>

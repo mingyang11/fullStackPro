@@ -31,10 +31,11 @@ class LoginController extends Controller {
       ctx.status = 200;
       ctx.body = {
         message: '登陆成功',
+        Succ: true,
       };
     } else {
       ctx.status = 400;
-      ctx.body = { msg: '用户名或密码错误' };
+      ctx.body = { msg: '用户名或密码错误', Succ: false };
     }
   }
 }
