@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Card } from 'antd';
 
 class LoginPage extends Component {
   constructor(props) {
