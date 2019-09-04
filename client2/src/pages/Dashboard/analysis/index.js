@@ -8,7 +8,7 @@ class LoginPage extends Component {
   }
 
   render() {
-    return <div>analysis page</div>;
+    return <Card>analysis pagedf</Card>;
   }
 }
 

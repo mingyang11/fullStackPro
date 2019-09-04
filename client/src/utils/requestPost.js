@@ -16,7 +16,6 @@ async function request(options) {
         response = await axios(options)
         return response;
     } catch (error) {
-        console.log(error)
         return response;
     }
 }
