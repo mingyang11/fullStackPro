@@ -4,7 +4,8 @@ export default [
     component: '../layout/userLayout',
     routes: [
       { path: '/user', redirect: '/user/login' },
-      { path: '/user/login', name: 'login', component: 'Users/login' }
+      { path: '/user/login', name: 'login', component: 'Users/login' },
+      { path: '/user/register', name: 'register', component: 'Users/register' }
     ]
   },
   {
@@ -13,7 +14,7 @@ export default [
     routes: [
       {
         path: '/',
-        component: 'helloworld'
+        redirect: '/helloworld'
       },
       {
         path: '/helloWorld',
@@ -37,12 +38,18 @@ export default [
           {
             path: '/dashboard/workplace',
             component: 'Dashboard/Workplace'
+          },
+          {
+            component: '404'
           }
         ]
       },
       {
         path: '/cardPage',
         component: 'CardPage'
+      },
+      {
+        component: '404'
       }
     ]
   }

@@ -1,28 +1,24 @@
-import React, {Component} from 'react';
-import Link from 'umi/link';
-import logo from '../assets/logo.svg';
+import React, { Component } from 'react'
+import { Layout } from 'antd'
+import Link from 'umi/link'
+import styles from './userLayout.less'
+// import logo from '../assets/logo.svg'
+
+const { Header, Content, Footer } = Layout
 
 class UserLayout extends Component {
-    render() {
-        const {children} = this.props;
-        return (
-            <div>
-                <div>
-                    <div>
-                    <div>
-                        <Link to="/">
-                        <img alt="logo" src={logo} />
-                        <span>Ant Design</span>
-                        </Link>
-                    </div>
-                    <div>Ant Design 是西湖区最具影响力的 Web 设计规范</div>
-                    </div>
-                    {children}
-                </div>
-            </div>
-        );
-        
-    }
+  render() {
+    const { children } = this.props
+    return (
+      <div className={styles.userContaier}>
+        <div className={styles.userHeader}>niohao</div>
+        <div className={styles.userContent}>{children}</div>
+        <div className={styles.footer}>
+          Ant Design 是西湖区最具影响力的 Web 设计规范
+        </div>
+      </div>
+    )
+  }
 }
 
-export default UserLayout;
+export default UserLayout

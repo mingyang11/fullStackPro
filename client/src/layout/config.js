@@ -8,6 +8,7 @@ const routeConfig = [
   {
     title: '测试主页',
     icon: 'user',
+    key: 'test',
     children: [
       {
         title: '分析页',
