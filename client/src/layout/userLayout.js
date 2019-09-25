@@ -1,10 +1,5 @@
 import React, { Component } from 'react'
-import { Layout } from 'antd'
-import Link from 'umi/link'
 import styles from './userLayout.less'
-// import logo from '../assets/logo.svg'
-
-const { Header, Content, Footer } = Layout
 
 class UserLayout extends Component {
   render() {

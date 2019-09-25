@@ -14,11 +14,11 @@ export default [
     routes: [
       {
         path: '/',
-        redirect: '/helloworld'
+        redirect: '/home_page'
       },
       {
-        path: '/helloWorld',
-        component: 'helloworld'
+        path: '/home_page',
+        component: 'HomePage/index'
       },
       {
         path: '/dashboard',

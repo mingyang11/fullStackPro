@@ -1,8 +1,8 @@
 const routeConfig = [
   {
     title: '首页',
-    path: '/helloWorld',
-    key: 'helloWorld',
+    path: '/home_page',
+    key: 'homepage',
     icon: 'user'
   },
   {
