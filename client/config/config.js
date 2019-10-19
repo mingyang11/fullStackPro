@@ -8,8 +8,8 @@ export default {
 
   routes: routersConfig,
   proxy: {
-    '/dev': {
-      target: 'http://127.0.0.1:7001',
+    '/api/v2': {
+      target: 'http://127.0.0.1:7002',
       changeOrigin: true
     }
   }

@@ -6,13 +6,15 @@ class LoginController extends Controller {
   // 注册
   async register() {
     const { ctx } = this;
+    console.log(ctx, 'ctx');
+    console.log(ctx.request.body, 'requese');
     const { username, email, password } = ctx.request.body;
+    // eslint-disable-next-line no-unused-vars
     const userInfo = await ctx.service.user.register({
       username,
       email,
       password,
     });
-    console.log(userInfo);
   }
 
   // 登陆

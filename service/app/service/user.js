@@ -1,7 +1,7 @@
 'use strict';
 
-const Service = require('egg').Service;
-const uuid = require('uuid');
+const { Service } = require('egg');
+const uuid = require('uuid'); // 创建一个不会重复的uid
 const crypto = require('crypto');
 const jwt = require('jsonwebtoken');
 
