@@ -24,6 +24,7 @@ module.exports = appInfo => {
     database: 'learn',
   };
 
+  //   加密的字符串，不能对外泄漏
   config.password_secret = 'yangming';
   config.jwtSecret = 'yangming';
   config.auth_cookie_name = 'token';
@@ -31,7 +32,7 @@ module.exports = appInfo => {
     '/',
     '/api/v2',
     '/api/v2/user/login',
-    '/api/v2/user/login',
+    '/api/v2/user/regiter',
   ];
 
   config.keys = appInfo.name + '_1560783102568_1643';

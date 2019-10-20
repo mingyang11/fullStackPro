@@ -27,6 +27,7 @@ class UserService extends Service {
     const token = jwt.sign({ userid: existUser.userid }, app.config.jwtSecret, {
       expiresIn: '7d',
     });
+    console.log(token, 'token');
     return token;
   }
 

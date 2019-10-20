@@ -19,7 +19,7 @@ class LoginController extends Controller {
 
   // 登陆
   async login() {
-    const { ctx } = this;
+    const { ctx, app } = this;
     const { email, password } = ctx.request.body;
     const token = await ctx.service.user.login({ email, password });
     if (token) {
@@ -29,7 +29,7 @@ class LoginController extends Controller {
         // httpOnly: false,
         // domain: '127.0.0.1',
       };
-      ctx.cookies.set(this.app.config.auth_cookie_name, token, opts);
+      ctx.cookies.set(app.config.auth_cookie_name, token, opts);
       ctx.status = 200;
       ctx.body = {
         message: '登陆成功',
