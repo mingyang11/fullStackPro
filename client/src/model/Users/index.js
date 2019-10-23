@@ -1,47 +1,80 @@
-import { getTest } from '../../services/api'
+import { postLogin, postRegister } from '../../services/api'
+import router from 'umi/router'
 
 export default {
-  namespace: 'page_card_model',
-  state: {},
+  namespace: 'user_model',
+  state: {
+    loginResult: '',
+    registerResult: ''
+  },
   effects: {
-    *deleteAclSetting({ payload, callback }, { call, put }) {
+    *postLoginData({ payload, callback }, { call, put }) {
       const { reducer, ...rest } = payload
-      const response = yield call(deleteAclSetting, {
+      const response = yield call(postLogin, {
         ...rest
       })
       yield put({
-        type: reducer || 'fetchPublicStatus',
+        type: reducer || 'fetchPublicReducer',
+        payload: response,
+        callback
+      })
+    },
+    *postRegisterData({ payload, callback }, { call, put }) {
+      const { reducer, ...rest } = payload
+      const response = yield call(postRegister, {
+        ...rest
+      })
+      yield put({
+        type: reducer || 'fetchPublicReducer',
         payload: response,
         callback
       })
     }
   },
   reducers: {
-    fetchPublicStatus(state, action) {
+    fetchPublicReducer(state, action) {
       const { callback, payload } = action
       if (callback) callback(payload)
       return {
         ...state,
-        getAccountData: payload
+        resultData: payload
       }
     },
 
-    /* getAccountList开始 */
-    fetchAccountList(state, action) {
+    /* 登陆 */
+    postHandleLogin(state, action) {
       const { callback, payload } = action
-      const FAccountList = []
+      const loginResultStr = ''
       if (!payload.Success) {
-        if (callback) callback(FAccountList)
+        if (callback) callback(loginResultStr)
         return {
           ...state,
-          FAccountList
+          loginResult: loginResultStr
         }
       }
-      const content = payload.Content
-      if (callback) callback(content)
+      loginResultStr = payload.Content.msg || ''
+      if (callback) callback(loginResultStr)
       return {
         ...state,
-        FAccountList: content
+        loginResult: loginResultStr
+      }
+    },
+    /* 注册 */
+    postHandleLogin(state, action) {
+      const { callback, payload } = action
+      const registerResultStr = ''
+      if (!payload.Success) {
+        if (callback) callback(registerResultStr)
+        return {
+          ...state,
+          registerResult: registerResultStr
+        }
+      }
+      registerResultStr = payload.Content.msg || ''
+      if (callback) callback(registerResultStr)
+      return {
+        ...state,
+        registerResult: registerResultStr
       }
     }
   }

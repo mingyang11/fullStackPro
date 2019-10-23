@@ -6,8 +6,6 @@ class LoginController extends Controller {
   // 注册
   async register() {
     const { ctx } = this;
-    console.log(ctx, 'ctx');
-    console.log(ctx.request.body, 'requese');
     const { username, email, password } = ctx.request.body;
     // eslint-disable-next-line no-unused-vars
     const userInfo = await ctx.service.user.register({
@@ -32,12 +30,21 @@ class LoginController extends Controller {
       ctx.cookies.set(app.config.auth_cookie_name, token, opts);
       ctx.status = 200;
       ctx.body = {
-        message: '登陆成功',
-        Succ: true,
+        Content: {
+          msg: '登陆成功',
+        },
+        ErrorCode: 200,
+        ErrorMessage: '',
+        Success: true,
       };
     } else {
       ctx.status = 400;
-      ctx.body = { msg: '用户名或密码错误', Succ: false };
+      ctx.body = {
+        Content: {},
+        ErrorCode: 200,
+        ErrorMessage: '登陆失败',
+        Success: false,
+      };
     }
   }
 }

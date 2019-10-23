@@ -1,21 +1,65 @@
 import React, { Component, Fragment } from 'react'
 import { Form, Icon, Input, Button, Checkbox } from 'antd'
-import styles from './login.less'
-import Link from 'umi/link'
 import router from 'umi/router'
+import { connect } from 'dva'
+import styles from './login.less'
 
+const namespace = 'user_model'
+const mapStateToProps = state => {
+  const { registerResult, loginResult } = state[namespace]
+  return { registerResult, loginResult }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    postLoginData: (param, callback) => {
+      dispatch({
+        type: `${namespace}/postLoginData`,
+        payload: param,
+        callback
+      })
+    },
+    postRegisterData: (param, callback) => {
+      dispatch({
+        type: `${namespace}/postRegisterData`,
+        payload: param,
+        callback
+      })
+    }
+  }
+}
+
+@connect(
+  mapStateToProps,
+  mapDispatchToProps
+)
 class Login extends Component {
   handleSubmit = e => {
     const {
-      form: { validateFields }
+      form: { validateFields },
+      postLoginData
     } = this.props
     e.preventDefault()
     validateFields((err, values) => {
       if (!err) {
-        console.log('Received values of form: ', values)
+        const { email, password } = values
+        new Promise((resolve, reject) => {
+          postLoginData({ email, password }, res => {
+            const { Success } = res
+            if (Success) {
+              resolve(res)
+            } else {
+              reject()
+            }
+          })
+        }).then(res => {
+          const { Success } = res
+          if (Success) {
+            router.push('/')
+          }
+        })
       }
     })
-    router.push('/')
   }
 
   handleRegister = () => {
@@ -29,7 +73,7 @@ class Login extends Component {
       <div className={styles.login_container}>
         <Form className={styles.login_form}>
           <Form.Item>
-            {getFieldDecorator('username', {
+            {getFieldDecorator('email', {
               rules: [
                 { required: true, message: 'Please input your username!' }
               ]
