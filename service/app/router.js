@@ -9,4 +9,5 @@ module.exports = app => {
   const apiV2Router = router.namespace('/api/v2');
   apiV2Router.post('/register', controller.login.register);
   apiV2Router.post('/login', controller.login.login);
+  apiV2Router.get('/findUserAll', controller.users.findUserList);
 };

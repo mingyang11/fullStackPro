@@ -1,3 +1,4 @@
+import { stringify } from 'qs'
 import request from '../../utils/request'
 import requestAxios from '../../utils/requestAxios'
 import { v2, checkCode } from '../config'
@@ -15,5 +16,10 @@ export async function postRegister(params) {
     method: 'POST',
     body: params
   })
+  return checkCode(response)
+}
+
+export async function selectUsers(params) {
+  const response = request(`${v2}/findUserAll?${stringify(params)}`)
   return checkCode(response)
 }

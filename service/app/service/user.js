@@ -27,7 +27,6 @@ class UserService extends Service {
     const token = jwt.sign({ userid: existUser.userid }, app.config.jwtSecret, {
       expiresIn: '7d',
     });
-    console.log(token, 'token');
     return token;
   }
 
@@ -78,6 +77,14 @@ class UserService extends Service {
       return true;
     }
     return false;
+  }
+
+  async findUserList() {
+    const users = await this.ctx.model.User.findAll();
+    if (users) {
+      return users;
+    }
+    return [];
   }
 }
 

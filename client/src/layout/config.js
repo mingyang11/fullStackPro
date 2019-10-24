@@ -32,8 +32,8 @@ const routeConfig = [
   },
   {
     title: '卡片页',
-    path: '/cardPage',
-    key: 'cardPage',
+    path: '/user_list',
+    key: 'user_list',
     icon: 'user'
   }
 ]

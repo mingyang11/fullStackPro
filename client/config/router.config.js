@@ -45,8 +45,8 @@ export default [
         ]
       },
       {
-        path: '/cardPage',
-        component: 'CardPage'
+        path: '/user_list',
+        component: 'UserList'
       },
       {
         component: '404'

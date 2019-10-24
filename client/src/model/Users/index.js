@@ -1,11 +1,11 @@
-import { postLogin, postRegister } from '../../services/api'
-import router from 'umi/router'
+import { postLogin, postRegister, selectUsers } from '../../services/api'
 
 export default {
   namespace: 'user_model',
   state: {
     loginResult: '',
-    registerResult: ''
+    registerResult: '',
+    userList: []
   },
   effects: {
     *postLoginData({ payload, callback }, { call, put }) {
@@ -22,6 +22,17 @@ export default {
     *postRegisterData({ payload, callback }, { call, put }) {
       const { reducer, ...rest } = payload
       const response = yield call(postRegister, {
+        ...rest
+      })
+      yield put({
+        type: reducer || 'fetchPublicReducer',
+        payload: response,
+        callback
+      })
+    },
+    *getUserList({ payload, callback }, { call, put }) {
+      const { reducer, ...rest } = payload
+      const response = yield call(selectUsers, {
         ...rest
       })
       yield put({
@@ -75,6 +86,24 @@ export default {
       return {
         ...state,
         registerResult: registerResultStr
+      }
+    },
+    /* 获取所有用户数据 */
+    fetchUserList(state, action) {
+      const { callback, payload } = action
+      let userList = []
+      if (!payload.Success) {
+        if (callback) callback(userList)
+        return {
+          ...state,
+          userList
+        }
+      }
+      userList = payload.Content || []
+      if (callback) callback(userList)
+      return {
+        ...state,
+        userList
       }
     }
   }
