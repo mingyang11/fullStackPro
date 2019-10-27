@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Row, Col, Button, Input, Icon } from 'antd'
-import './style.less'
+// import './style.less'
 
 class Captcha extends Component {
   constructor(props) {

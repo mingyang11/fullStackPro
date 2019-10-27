@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Col } from 'antd'
 import ImagePicker from './ImagePicker'
-import './style.less'
+// import './style.less'
 
 export default class ImagePickerGroup extends Component {
   constructor(props) {

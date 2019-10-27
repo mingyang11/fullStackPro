@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Checkbox } from 'antd'
-import './style.less'
+// import './style.less'
 
 export default class CheckboxGroup extends Component {
   constructor(props) {

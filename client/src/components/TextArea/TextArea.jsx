@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Input } from 'antd'
 import PropTypes from 'prop-types'
-import './style.less'
+// import './style.less'
 
 const AntdTextArea = Input.TextArea
 

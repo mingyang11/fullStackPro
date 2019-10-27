@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Table as AntdTabel, Spin } from 'antd'
+import moment from 'moment'
 
 class Table extends Component {
   onChange(page, filters, sorter) {

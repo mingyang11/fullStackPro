@@ -1,8 +1,3 @@
-import React, { Fragment } from 'react'
-import Table from '../Table'
+import ListPage from './ListPage';
 
-class ListPage extends Fragment {
-  render() {
-    return 213
-  }
-}
+export default ListPage;

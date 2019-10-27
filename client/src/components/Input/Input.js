@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Input as AntdInput, Icon } from 'antd'
 import Link from 'umi/link'
 import { isEmpty } from '../utils'
-import './style.less'
+// import './style.less'
 
 export default class Input extends Component {
   constructor(props) {
