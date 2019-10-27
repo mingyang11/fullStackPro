@@ -15,10 +15,6 @@ class AdvancedSearchForm extends Component {
     form: PropTypes.object.isRequired,
     fields: PropTypes.array.isRequired,
     search: PropTypes.func.isRequired,
-    values: PropTypes.object.isRequired,
-    reset: PropTypes.func,
-    changeRecord: PropTypes.func, // eslint-disable-line react/no-unused-prop-types
-    // changeRecord: PropTypes.func.isRequired,
     validateDisabled: PropTypes.bool,
     sorter: PropTypes.object
   }
@@ -33,9 +29,9 @@ class AdvancedSearchForm extends Component {
   }
 
   getValues(callback) {
-    this.props.form.validateFields(err => {
+    this.props.form.validateFields((err, values) => {
       if (!err) {
-        callback()
+        callback(values)
       }
     })
   }
@@ -48,10 +44,9 @@ class AdvancedSearchForm extends Component {
   }
 
   handleSearch = () => {
-    this.getValues(() => {
+    this.getValues(values => {
       const pageSize = (this.props.page && this.props.page.pageSize) || 10
-      const searchParams = this.props.values
-      console.log(searchParams, 'searchParams')
+      const searchParams = values
       this.props.search({
         ...searchParams,
         pageNo: 1,
@@ -63,8 +58,10 @@ class AdvancedSearchForm extends Component {
   }
 
   handleReset = () => {
-    ;(this.props.reset && this.props.reset()) ||
-      (this.props.changeRecord && this.props.changeRecord())
+    const {
+      form: { resetFields }
+    } = this.props
+    resetFields()
   }
 
   render() {

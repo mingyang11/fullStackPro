@@ -59,16 +59,20 @@ class UserList extends Component {
     getUserList({ reducer: 'fetchUserList' })
   }
 
+  search = param => {
+    const { getUserList } = this.props
+    getUserList({ reducer: 'fetchUserList', ...param })
+  }
+
   render() {
-    const { userList = [], loading, getUserList } = this.props
+    const { userList = [], loading } = this.props
     return (
       <Card bordered={false}>
         <ListPage
-          searchParams={{}}
           columns={this.columns}
           data={userList}
           loading={loading}
-          search={() => getUserList({ reducer: 'fetchUserList' })}
+          search={this.search}
         />
       </Card>
     )

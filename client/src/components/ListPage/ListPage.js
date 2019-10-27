@@ -31,8 +31,6 @@ export default class ListPage extends Component {
     tableOpts: PropTypes.object,
     changeRecord: PropTypes.func,
     changeSearch: PropTypes.func,
-    searchParams: PropTypes.object,
-    resetSearch: PropTypes.func,
     aboveSearch: PropTypes.object,
     sorter: PropTypes.object,
     xScroll: PropTypes.number,
@@ -60,7 +58,6 @@ export default class ListPage extends Component {
     cancel: undefined,
     tableOpts: {},
     changeRecord: undefined,
-    searchParams: undefined,
     aboveSearch: undefined,
     sorter: {},
     xScroll: 800,
@@ -82,7 +79,6 @@ export default class ListPage extends Component {
       isSuccess &&
         this.props.search &&
         this.props.search({
-          ...this.props.searchParams,
           pageNo,
           pageSize
         })
@@ -123,7 +119,6 @@ export default class ListPage extends Component {
       modalVisible,
       tableOpts,
       changeSearch,
-      searchParams,
       page,
       buttons = [],
       searchFields,
@@ -133,7 +128,6 @@ export default class ListPage extends Component {
       children,
       changeRecord,
       expandedRowRender,
-      resetSearch,
       aboveSearch,
       sorter,
       xScroll,
@@ -194,9 +188,7 @@ export default class ListPage extends Component {
             fields={searchFields || columns.filter(item => !!item.search)}
             search={search}
             changeRecord={changeSearch}
-            values={searchParams}
             page={page}
-            reset={resetSearch}
             sorter={sorter}
             style={{ marginBottom: 16 }}
           />

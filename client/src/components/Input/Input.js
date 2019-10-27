@@ -67,7 +67,9 @@ export default class Input extends Component {
     const suffix =
       allowClear && value !== '' ? (
         <Icon type="close-circle" onClick={this.emitEmpty} />
-      ) : null
+      ) : (
+        <span />
+      )
     const style = {}
 
     if (inputWidth) {
