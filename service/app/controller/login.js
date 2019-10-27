@@ -47,6 +47,13 @@ class LoginController extends Controller {
       };
     }
   }
+
+  //   退出
+  async signout() {
+    const { ctx } = this;
+    ctx.cookies.set(this.config.auth_cookie_name, '');
+    ctx.returnBody(200, '退出成功', { msg: '退出成功' });
+  }
 }
 
 module.exports = LoginController;

@@ -79,6 +79,18 @@ class UserService extends Service {
     return false;
   }
 
+  //   查询用户信息
+  async getUserByUserId(userid) {
+    const userInfo = await this.ctx.model.User.findOne({
+      where: { userid },
+    });
+    if (userInfo) {
+      return userInfo;
+    }
+    return null;
+  }
+
+  //   查询用户列表
   async findUserList() {
     const users = await this.ctx.model.User.findAll();
     if (users) {

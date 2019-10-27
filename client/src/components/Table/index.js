@@ -3,14 +3,16 @@ import { Table as AntdTabel, Spin } from 'antd'
 import moment from 'moment'
 
 class Table extends Component {
-  onChange(page, filters, sorter) {
-    this.props.search({
-      ...this.props.searchParams,
-      pageNo: page.current,
-      pageSize: page.pageSize,
-      columnKey: sorter.columnKey,
-      order: sorter.order
-    })
+  // 是否根据当前已返回的数据进行排序还是根据所有的数据进行排序，待商榷
+  onChange = (page, filters, sorter) => {
+    console.log(this.props.dataSource)
+    // this.props.search({
+    //   ...this.props.searchParams,
+    //   pageNo: page.current,
+    //   pageSize: page.pageSize,
+    //   columnKey: sorter.columnKey,
+    //   order: sorter.order
+    // })
   }
   shapeColumns(columns) {
     const { sorter = {}, valueName = 'id', displayName = 'label' } = this.props
@@ -127,7 +129,7 @@ class Table extends Component {
               : false
           }
           searchParams={searchParams}
-          onChange={onChange || this.onChange}
+          onChange={this.onChange}
           rowKey={rowKey}
           rowSelection={rowSelection}
           expandedRowKeys={defaultExpandAllRows ? undefined : expandedRowKeys}

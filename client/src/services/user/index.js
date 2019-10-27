@@ -20,6 +20,6 @@ export async function postRegister(params) {
 }
 
 export async function selectUsers(params) {
-  const response = request(`${v2}/findUserAll?${stringify(params)}`)
+  const response = request(`${v2}/user/list?${stringify(params)}`)
   return checkCode(response)
 }

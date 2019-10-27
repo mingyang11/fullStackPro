@@ -49,8 +49,14 @@ class UserList extends Component {
     {
       title: '操作',
       dataIndex: 'operate',
+      align: 'center',
       render: () => {
-        return <Button>删除</Button>
+        return (
+          <span>
+            <Button type="link">编辑</Button>
+            <Button type="link">删除</Button>
+          </span>
+        )
       }
     }
   ]
@@ -73,6 +79,11 @@ class UserList extends Component {
           data={userList}
           loading={loading}
           search={this.search}
+          page={{
+            current: 1,
+            total: 120,
+            pageSize: 10
+          }}
         />
       </Card>
     )

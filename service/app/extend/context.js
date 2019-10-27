@@ -13,11 +13,11 @@ module.exports = {
     return user;
   },
   returnBody(status, message, data = {}) {
-    this.status = status;
     this.body = {
       Content: data,
-      message,
-      success: true,
+      ErrorCode: status,
+      ErrorMessage: message,
+      Success: status === 200,
     };
   },
 };
