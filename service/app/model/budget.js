@@ -11,7 +11,7 @@ module.exports = app => {
       budgetitle: { type: STRING(255), allowNull: false },
       budgetcontent: { type: STRING(10000), allowNull: false },
       money: { type: INTEGER, allowNull: true },
-      receiver: { type: INTEGER, allowNull: true },
+      receiver: { type: STRING(255), allowNull: true },
       created_at: DATE,
       updated_at: { type: DATE, defaultValue: NOW },
     },

@@ -12,4 +12,7 @@ module.exports = app => {
   apiV2Router.get('/signout', controller.login.signout);
   apiV2Router.get('/user/info', controller.users.userInfo);
   apiV2Router.get('/user/list', controller.users.findUserList);
+
+  // 新增预算项目
+  apiV2Router.post('/budget_add', controller.budget.addBudget);
 };
