@@ -16,7 +16,6 @@ export default class CheckboxGroup extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    // Should be a controlled component.
     if ('value' in nextProps) {
       let value = nextProps.value || []
       value = value.filter(v => !!nextProps.options.find(o => o.value === v))
