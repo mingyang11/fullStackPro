@@ -6,18 +6,18 @@ const routeConfig = [
     icon: 'bank'
   },
   {
-    title: '基础组件',
+    title: '示例',
     icon: 'calendar',
     key: 'base_component',
     children: [
       {
-        title: '分析页',
+        title: '图表',
         path: '/dashboard/analysis',
         key: 'analysis',
         icon: 'account-book'
       },
       {
-        title: '监控',
+        title: '基础组件',
         path: '/dashboard/monitor',
         key: 'monitor',
         icon: 'api'
@@ -27,6 +27,19 @@ const routeConfig = [
         path: '/dashboard/workplace',
         key: 'workplace',
         icon: 'appstore'
+      }
+    ]
+  },
+  {
+    title: '预算',
+    key: 'budget',
+    icon: 'scan',
+    children: [
+      {
+        title: '图表',
+        path: '/decorate_budget',
+        key: 'decorate_budget',
+        icon: 'safety'
       }
     ]
   },

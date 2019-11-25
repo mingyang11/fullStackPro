@@ -49,6 +49,14 @@ export default [
         component: 'UserList'
       },
       {
+        path: '/decorate_budget',
+        component: 'Budget'
+      },
+      {
+        path: '/budget_add',
+        component: 'Budget/BudgetAdd'
+      },
+      {
         component: '404'
       }
     ]

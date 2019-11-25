@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import { Card, Button } from 'antd'
+import { Button, Card } from 'antd'
 import { connect } from 'dva'
+import Link from 'umi/link'
 import Table from '@/components/Table'
-import ListPage from '@/components/ListPage'
 
 const namespace = 'user_model'
 
@@ -27,25 +27,25 @@ const mapDispatchToProps = dispatch => {
   mapStateToProps,
   mapDispatchToProps
 )
-class UserList extends Component {
+class DecorateBudget extends Component {
   columns = [
-    { title: 'ID', dataIndex: 'id', sorter: true, search: true },
-    { title: '用户名', dataIndex: 'username', search: true },
-    { title: '邮箱', dataIndex: 'email', search: true },
-    { title: '手机号', dataIndex: 'mobile', search: true },
+    { title: 'ID', dataIndex: 'id', sorter: true },
+    { title: '用户名', dataIndex: 'username' },
+    { title: '邮箱', dataIndex: 'email' },
+    { title: '手机号', dataIndex: 'mobile' },
     {
       title: '创建时间',
       dataIndex: 'created_at',
-      search: true,
+
       type: 'datetime'
     },
     {
       title: '更新时间',
       dataIndex: 'updated_at',
-      search: true,
+
       type: 'datetime'
     },
-    { title: '性别', dataIndex: 'sex', search: true },
+    { title: '性别', dataIndex: 'sex' },
     {
       title: '操作',
       dataIndex: 'operate',
@@ -72,20 +72,18 @@ class UserList extends Component {
 
   render() {
     const { userList = [], loading } = this.props
+    console.log(userList, 'userList')
     return (
-      <ListPage
-        columns={this.columns}
-        data={userList}
-        loading={loading}
-        search={this.search}
-        page={{
-          current: 1,
-          total: 120,
-          pageSize: 10
-        }}
-      />
+      <Card bordered={false} extra={<Link to={`/budget_add`}>添加预算</Link>}>
+        <Table
+          bordered
+          columns={this.columns}
+          dataSource={userList}
+          loading={loading}
+        />
+      </Card>
     )
   }
 }
 
-export default UserList
+export default DecorateBudget
