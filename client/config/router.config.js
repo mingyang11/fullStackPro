@@ -36,13 +36,13 @@ export default [
             component: 'Dashboard/Monitor'
           },
           {
-            path: '/dashboard/workplace',
-            component: 'Dashboard/Workplace'
-          },
-          {
             component: '404'
           }
         ]
+      },
+      {
+        path: '/jest_learn',
+        component: 'JestLearn/index'
       },
       {
         path: '/user_list',
