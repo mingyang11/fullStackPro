@@ -12,7 +12,6 @@ export default class Search extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    // Should be a controlled component.
     if ('value' in nextProps) {
       let value = nextProps.value || undefined
       if (typeof value === 'number') {
