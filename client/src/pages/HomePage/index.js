@@ -8,7 +8,7 @@ class HomePage extends Component {
     { title: '姓名', dataIndex: 'name' },
     { title: '年龄', dataIndex: 'age' },
     {
-      title: '操作',
+      title: '操作1s',
       dataIndex: 'operate',
       width: 150,
       render: () => {
