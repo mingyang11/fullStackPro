@@ -1,5 +1,5 @@
-import routersConfig from './router.config'
-import pluginsConfig from './plugin.config'
+import routersConfig from "./router.config";
+import pluginsConfig from "./plugin.config";
 
 export default {
   singular: true,
@@ -8,9 +8,9 @@ export default {
 
   routes: routersConfig,
   proxy: {
-    '/api/v2': {
-      target: 'http://127.0.0.1:7001',
-      changeOrigin: true
-    }
-  }
-}
+    "/": {
+      target: "http://127.0.0.1:7001",
+      changeOrigin: true,
+    },
+  },
+};
