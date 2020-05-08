@@ -35,7 +35,7 @@ class HomePage extends Component {
     const { content } = this.state
     return (
       <Fragment>
-        <Table columns={this.columns} dataSource={data} />
+        <Table columns={this.columns} dataSource={data} rowKey="name" />
       </Fragment>
     )
   }

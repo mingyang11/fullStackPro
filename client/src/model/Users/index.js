@@ -1,110 +1,110 @@
-import { postLogin, postRegister, selectUsers } from '../../services/api'
+import { postLogin, postRegister, selectUsers } from '../../services/api';
 
 export default {
   namespace: 'user_model',
   state: {
     loginResult: '',
     registerResult: '',
-    userList: []
+    userList: [],
   },
   effects: {
     *postLoginData({ payload, callback }, { call, put }) {
-      const { reducer, ...rest } = payload
+      const { reducer, ...rest } = payload;
       const response = yield call(postLogin, {
-        ...rest
-      })
+        ...rest,
+      });
       yield put({
         type: reducer || 'fetchPublicReducer',
         payload: response,
-        callback
-      })
+        callback,
+      });
     },
-    *postRegisterData({ payload, callback }, { call, put }) {
-      const { reducer, ...rest } = payload
+    *postRegister({ payload, callback }, { call, put }) {
+      const { reducer, ...rest } = payload;
       const response = yield call(postRegister, {
-        ...rest
-      })
+        ...rest,
+      });
       yield put({
         type: reducer || 'fetchPublicReducer',
         payload: response,
-        callback
-      })
+        callback,
+      });
     },
     *getUserList({ payload, callback }, { call, put }) {
-      const { reducer, ...rest } = payload
+      const { reducer, ...rest } = payload;
       const response = yield call(selectUsers, {
-        ...rest
-      })
+        ...rest,
+      });
       yield put({
         type: reducer || 'fetchPublicReducer',
         payload: response,
-        callback
-      })
-    }
+        callback,
+      });
+    },
   },
   reducers: {
     fetchPublicReducer(state, action) {
-      const { callback, payload } = action
-      if (callback) callback(payload)
+      const { callback, payload } = action;
+      if (callback) callback(payload);
       return {
         ...state,
-        resultData: payload
-      }
+        resultData: payload,
+      };
     },
 
     /* 登陆 */
     postHandleLogin(state, action) {
-      const { callback, payload } = action
-      const loginResultStr = ''
+      const { callback, payload } = action;
+      const loginResultStr = '';
       if (!payload.Success) {
-        if (callback) callback(loginResultStr)
+        if (callback) callback(loginResultStr);
         return {
           ...state,
-          loginResult: loginResultStr
-        }
+          loginResult: loginResultStr,
+        };
       }
-      loginResultStr = payload.Content.msg || ''
-      if (callback) callback(loginResultStr)
+      loginResultStr = payload.Content.msg || '';
+      if (callback) callback(loginResultStr);
       return {
         ...state,
-        loginResult: loginResultStr
-      }
+        loginResult: loginResultStr,
+      };
     },
     /* 注册 */
     postHandleLogin(state, action) {
-      const { callback, payload } = action
-      const registerResultStr = ''
+      const { callback, payload } = action;
+      const registerResultStr = '';
       if (!payload.Success) {
-        if (callback) callback(registerResultStr)
+        if (callback) callback(registerResultStr);
         return {
           ...state,
-          registerResult: registerResultStr
-        }
+          registerResult: registerResultStr,
+        };
       }
-      registerResultStr = payload.Content.msg || ''
-      if (callback) callback(registerResultStr)
+      registerResultStr = payload.Content.msg || '';
+      if (callback) callback(registerResultStr);
       return {
         ...state,
-        registerResult: registerResultStr
-      }
+        registerResult: registerResultStr,
+      };
     },
     /* 获取所有用户数据 */
     fetchUserList(state, action) {
-      const { callback, payload } = action
-      let userList = []
+      const { callback, payload } = action;
+      let userList = [];
       if (!payload.Success) {
-        if (callback) callback(userList)
+        if (callback) callback(userList);
         return {
           ...state,
-          userList
-        }
+          userList,
+        };
       }
-      userList = payload.Content || []
-      if (callback) callback(userList)
+      userList = payload.Content || [];
+      if (callback) callback(userList);
       return {
         ...state,
-        userList
-      }
-    }
-  }
-}
+        userList,
+      };
+    },
+  },
+};

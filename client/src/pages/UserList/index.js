@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
-import { Card, Button } from 'antd'
+import { Button } from 'antd'
 import { connect } from 'dva'
-import Table from '@/components/Table'
-import ListPage from '@/components/ListPage'
 
 const namespace = 'user_model'
 
@@ -72,19 +70,7 @@ class UserList extends Component {
 
   render() {
     const { userList = [], loading } = this.props
-    return (
-      <ListPage
-        columns={this.columns}
-        data={userList}
-        loading={loading}
-        search={this.search}
-        page={{
-          current: 1,
-          total: 120,
-          pageSize: 10
-        }}
-      />
-    )
+    return 'dfaf'
   }
 }
 
