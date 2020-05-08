@@ -3,7 +3,6 @@ import { Form, Input, Button } from 'antd';
 import { connect } from 'dva';
 import styles from './login.less';
 import Link from 'umi/link';
-import router from 'umi/router';
 
 const formItemLayout = {
   labelCol: { span: 6 },
@@ -39,6 +38,8 @@ const mapDispatchToProps = (dispatch) => {
 class Register extends Component {
   handleRegister = () => {
     const { form, postRegister } = this.props;
+
+    // router.push('/user/login');
     form.validateFields((err, values) => {
       if (!err) {
         postRegister(values);

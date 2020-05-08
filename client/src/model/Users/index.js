@@ -1,3 +1,4 @@
+import router from 'umi/router';
 import { postLogin, postRegister, selectUsers } from '../../services/api';
 
 export default {
@@ -24,6 +25,10 @@ export default {
       const response = yield call(postRegister, {
         ...rest,
       });
+      const { Success } = response;
+      if (Success) {
+        router.push('/user/login');
+      }
       yield put({
         type: reducer || 'fetchPublicReducer',
         payload: response,
