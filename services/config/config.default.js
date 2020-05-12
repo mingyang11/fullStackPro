@@ -25,6 +25,11 @@ module.exports = (appInfo) => {
     // myAppName: 'egg',
   };
 
+  // 加密字符串
+  config.password_secret = 'yangming';
+  config.jwtSecret = 'ming';
+  config.auth_cookie_name = 'token';
+
   config.sequelize = {
     dialect: 'mysql',
     host: '127.0.0.1',
