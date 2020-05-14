@@ -33,7 +33,13 @@ class LoginController extends Controller {
       };
       return;
     } else {
-      ctx.throw(400, 'error');
+      ctx.status = 400;
+      ctx.body = {
+        Content: '',
+        ErrorCode: 400,
+        ErrorMessage: '账号密码错误',
+        Success: false,
+      };
     }
   }
 }

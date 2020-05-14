@@ -38,6 +38,11 @@ module.exports = (appInfo) => {
     password: 'yangming1992',
   };
 
+  // 白名单
+  config.authWhiteList = ['/', '/api/v2/login', '/api/v2/register'];
+  // 中间件，每次请求的时候都会经过
+  config.middleware = ['authorization'];
+
   return {
     ...config,
     ...userConfig,
