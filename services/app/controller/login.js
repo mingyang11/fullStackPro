@@ -42,6 +42,18 @@ class LoginController extends Controller {
       };
     }
   }
+
+  async signOut() {
+    const { ctx } = this;
+    ctx.cookies.set(this.config.auth_cookie_name, '');
+    ctx.status = 200;
+    ctx.body = {
+      Content: '登陆成功',
+      ErrorCode: 200,
+      ErrorMessage: '',
+      Success: true,
+    };
+  }
 }
 
 module.exports = LoginController;

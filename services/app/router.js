@@ -10,4 +10,5 @@ module.exports = (app) => {
   router.get('/', controller.home.index);
   apiV2Router.post('/register', controller.login.register);
   apiV2Router.post('/login', controller.login.loginIn);
+  apiV2Router.post('/login/signOut', controller.login.signOut);
 };
