@@ -11,4 +11,7 @@ module.exports = (app) => {
   apiV2Router.post('/register', controller.login.register);
   apiV2Router.post('/login', controller.login.loginIn);
   apiV2Router.post('/login/signOut', controller.login.signOut);
+
+  //follow
+  apiV2Router.post('/friend/follow', controller.friend.follow);
 };

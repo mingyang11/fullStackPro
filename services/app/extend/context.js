@@ -9,9 +9,6 @@ module.exports = {
   get user() {
     let token = this.cookies.get('token');
     let user = jwt.verify(token, this.app.config.jwtSecret);
-    if (user) {
-      return user.userid;
-    }
     return user;
   },
 };
