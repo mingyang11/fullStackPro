@@ -1,5 +1,8 @@
 import React, { Component, Fragment } from 'react';
-import { Form, Icon, Input, Button, Checkbox } from 'antd';
+import { LockOutlined, UserOutlined } from '@ant-design/icons';
+import { Form } from '@ant-design/compatible';
+import '@ant-design/compatible/assets/index.css';
+import { Input, Button, Checkbox } from 'antd';
 import router from 'umi/router';
 import { connect } from 'dva';
 import styles from './login.less';
@@ -72,9 +75,7 @@ class Login extends Component {
               ],
             })(
               <Input
-                prefix={
-                  <Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />
-                }
+                prefix={<UserOutlined style={{ color: 'rgba(0,0,0,.25)' }} />}
               />
             )}
           </Form.Item>
@@ -85,9 +86,7 @@ class Login extends Component {
               ],
             })(
               <Input
-                prefix={
-                  <Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />
-                }
+                prefix={<LockOutlined style={{ color: 'rgba(0,0,0,.25)' }} />}
                 type="password"
               />
             )}

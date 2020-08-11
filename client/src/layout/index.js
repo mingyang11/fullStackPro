@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Layout, Menu, Icon } from 'antd'
+import { Icon as LegacyIcon } from '@ant-design/compatible';
+import { Layout, Menu } from 'antd';
 import Link from 'umi/link'
 import routeConfig from './config'
 
@@ -23,7 +24,7 @@ class BasicLayout extends Component {
           <SubMenu
             title={
               <span>
-                <Icon type={element.icon} />
+                <LegacyIcon type={element.icon} />
                 {element.title}
               </span>
             }
@@ -31,17 +32,17 @@ class BasicLayout extends Component {
           >
             {this.renderMenu(element.children)}
           </SubMenu>
-        )
+        );
       }
       return (
         <Menu.Item key={element.key} title={element.title}>
           <Link to={element.path}>
-            <Icon type={element.icon} />
+            <LegacyIcon type={element.icon} />
             {element.title}
           </Link>
         </Menu.Item>
-      )
-    })
+      );
+    });
   }
   handleClick = e => {
     this.setState({
