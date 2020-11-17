@@ -4,8 +4,9 @@ import { Layout, Menu } from 'antd';
 import Link from 'umi/link';
 import routeConfig from './config';
 import HeaderComponent from './Header';
+import FooterComponent from './Footer';
 
-const { Header, Sider, Content } = Layout;
+const { Header, Sider, Content, Footer } = Layout;
 const SubMenu = Menu.SubMenu;
 
 class BasicLayout extends Component {
@@ -69,7 +70,7 @@ class BasicLayout extends Component {
               textAlign: 'center',
             }}
           >
-            MingYang
+            M Y
           </div>
           <Menu
             onClick={this.handleClick}
@@ -95,6 +96,9 @@ class BasicLayout extends Component {
               {children}
             </div>
           </Content>
+          <Footer>
+            <FooterComponent />
+          </Footer>
         </Layout>
       </Layout>
     );
