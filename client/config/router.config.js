@@ -5,8 +5,8 @@ export default [
     routes: [
       { path: '/user', redirect: '/user/login' },
       { path: '/user/login', name: 'login', component: 'Users/login' },
-      { path: '/user/register', name: 'register', component: 'Users/register' }
-    ]
+      { path: '/user/register', name: 'register', component: 'Users/register' },
+    ],
   },
   {
     path: '/',
@@ -14,43 +14,47 @@ export default [
     routes: [
       {
         path: '/',
-        redirect: '/home_page'
+        redirect: '/home_page',
       },
       {
         path: '/home_page',
-        component: 'HomePage/index'
+        component: 'HomePage/index',
       },
       {
         path: '/dashboard',
         routes: [
           {
             path: '/dashboard',
-            redirect: '/dashboard/analysis'
+            redirect: '/dashboard/analysis',
           },
           {
             path: '/dashboard/analysis',
-            component: 'Dashboard/Analysis'
+            component: 'Dashboard/Analysis',
           },
           {
             path: '/dashboard/monitor',
-            component: 'Dashboard/Monitor'
+            component: 'Dashboard/Monitor',
           },
           {
-            component: '404'
-          }
-        ]
+            component: '404',
+          },
+        ],
+      },
+      {
+        path: '/test',
+        component: 'test/index',
       },
       {
         path: '/jest_learn',
-        component: 'JestLearn/index'
+        component: 'JestLearn/index',
       },
       {
         path: '/user_list',
-        component: 'UserList'
+        component: 'UserList',
       },
       {
-        component: '404'
-      }
-    ]
-  }
-]
+        component: '404',
+      },
+    ],
+  },
+];
