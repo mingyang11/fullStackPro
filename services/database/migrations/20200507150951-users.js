@@ -2,7 +2,7 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    const { INTEGER, DATE, STRING, NOW } = Sequelize;
+    const { INTEGER, DATE, STRING } = Sequelize;
     await queryInterface.createTable('users', {
       id: { type: INTEGER, primaryKey: true, autoIncrement: true },
       userid: { type: STRING(255), allowNull: false },
@@ -18,6 +18,7 @@ module.exports = {
       updated_at: { type: DATE },
     });
   },
+  // eslint-disable-next-line arrow-parens
   down: async (queryInterface) => {
     await queryInterface.dropTable('users');
   },
