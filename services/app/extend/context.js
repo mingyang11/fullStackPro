@@ -1,3 +1,4 @@
+'use strict';
 const jwt = require('jsonwebtoken');
 
 module.exports = {
@@ -7,8 +8,8 @@ module.exports = {
 
   // 获取用户信息
   get user() {
-    let token = this.cookies.get('token');
-    let user = jwt.verify(token, this.app.config.jwtSecret);
+    const token = this.cookies.get('token');
+    const user = jwt.verify(token, this.app.config.jwtSecret);
     return user;
   },
 };

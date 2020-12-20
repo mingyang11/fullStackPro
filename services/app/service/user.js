@@ -1,3 +1,4 @@
+'use strict';
 const Service = require('egg').Service;
 const uuid = require('uuid');
 const crypto = require('crypto');
@@ -46,7 +47,7 @@ class UserService extends Service {
 
   async hasRegister(email) {
     const user = await this.ctx.model.User.findOne({
-      where: { email: email },
+      where: { email },
     });
     if (user && user.dataValues.userid) {
       return true;
@@ -79,6 +80,7 @@ class UserService extends Service {
     });
     return token;
   }
+
   async getUserByEmail(email) {
     const user = await this.ctx.model.User.findOne({
       where: {

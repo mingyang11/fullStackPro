@@ -1,7 +1,9 @@
+'use strict';
+// eslint-disable-next-line arrow-parens
 module.exports = (app) => {
   const { Sequelize, model } = app;
   const { INTEGER, STRING, DATE, NOW } = Sequelize;
-  const User = model.define(
+  return model.define(
     'users',
     {
       id: { type: INTEGER, primaryKey: true, autoIncrement: true },
@@ -21,5 +23,4 @@ module.exports = (app) => {
       freezeTableName: true,
     }
   );
-  return User;
 };

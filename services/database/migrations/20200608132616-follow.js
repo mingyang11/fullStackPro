@@ -12,7 +12,7 @@ module.exports = {
       updated_at: { type: DATE, defaultValue: NOW },
     });
   },
-  down: async (queryInterface) => {
+  down: async queryInterface => {
     await queryInterface.dropTable('follow');
   },
 };

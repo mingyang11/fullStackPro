@@ -5,6 +5,7 @@
 /**
  * @param {Egg.EggAppInfo} appInfo app info
  */
+// eslint-disable-next-line arrow-parens
 module.exports = (appInfo) => {
   /**
    * built-in config
@@ -39,9 +40,9 @@ module.exports = (appInfo) => {
   };
 
   // 白名单
-  config.authWhiteList = ['/', '/api/v2/login', '/api/v2/register'];
+  config.authWhiteList = [ '/', '/api/v2/login', '/api/v2/register' ];
   // 中间件，每次请求的时候都会经过
-  config.middleware = ['authorization'];
+  config.middleware = [ 'authorization' ];
 
   return {
     ...config,

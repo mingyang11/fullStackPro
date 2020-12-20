@@ -3,7 +3,7 @@
 /**
  * @param {Egg.Application} app - egg application
  */
-module.exports = (app) => {
+module.exports = app => {
   const { router, controller } = app;
   // 路由版本
   const apiV2Router = router.namespace('/api/v2');
@@ -12,6 +12,6 @@ module.exports = (app) => {
   apiV2Router.post('/login', controller.login.loginIn);
   apiV2Router.post('/login/signOut', controller.login.signOut);
 
-  //follow
+  // follow
   apiV2Router.post('/friend/follow', controller.friend.follow);
 };

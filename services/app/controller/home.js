@@ -6,7 +6,10 @@ class HomeController extends Controller {
   async index() {
     const { ctx } = this;
     // f
-    ctx.body = ctx.user;
+    ctx.body = {
+      name: '杨明',
+      age: 28,
+    };
   }
 }
 

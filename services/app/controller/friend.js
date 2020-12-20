@@ -7,8 +7,8 @@ class FriendController extends Controller {
     const { ctx } = this;
 
     const { userid, status } = ctx.request.body;
-    let followedid = ctx.user.userid;
-    let followMsg = {
+    const followedid = ctx.user.userid;
+    const followMsg = {
       userid,
       status,
       followedid,

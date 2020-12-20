@@ -1,4 +1,5 @@
-module.exports = (app) => {
+'use strict';
+module.exports = app => {
   const { Sequelize, model } = app;
   const { INTEGER, STRING, DATE, NOW } = Sequelize;
   const Follow = model.define(
