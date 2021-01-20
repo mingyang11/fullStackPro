@@ -16,7 +16,7 @@ class FriendController extends Controller {
 
     await ctx.service.follow.followUser(followMsg);
     ctx.body = {
-      Content: status ? '关注成功' : '取消关注成功',
+      Content: status ? '关注成功!' : '取消关注成功!',
       ErrorCode: 200,
       ErrorMessage: '',
       Success: true,
